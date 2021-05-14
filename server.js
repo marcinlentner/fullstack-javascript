@@ -1,8 +1,4 @@
-import config from './config';
+// import default, { nonDefault } export from config
+import config, { nodeEnv } from './config';
 
-console.log(config);
-
-// RESULT:
-// {}
-// returns empty object because ./config does not
-// export anything
+console.log(config, nodeEnv);
