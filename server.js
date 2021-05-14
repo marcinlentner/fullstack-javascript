@@ -1,10 +1,13 @@
-// https module can be used both as client and server
-import https from 'https';
+import http from 'http';
 
-https.get('https://www.example.com', res => {
-  console.log('Response status code: ', res.statusCode); // throws an error if address not found, website down
+const server = http.createServer();
 
-  res.on('data', chunk => {
-    console.log(chunk.toString());
-  });
+server.listen(8080);
+
+server.on('request', (req, res) => {
+  res.write('Hello HTTP!\n');
+  setTimeout(() => {
+    res.write('I can stream!\n');
+    res.end();
+  }, 3000);
 });
