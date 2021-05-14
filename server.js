@@ -1,11 +1,7 @@
-import http from 'http';
-
-const server = http.createServer((req, res) => {
-  res.write('Hello HTTP!\n');
-  setTimeout(() => {
-    res.write('I can stream!\n');
-    res.end();
-  }, 3000);
-});
+import express from 'express';
+const server = express();
 
 server.listen(8080);
+// express will not error, instead returns
+// html error page
+// if nothing there
